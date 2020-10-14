@@ -7,12 +7,13 @@ import "./App.css"
 import BookOne from "./components/BookOne.component";
 
 class App extends Component {
+
   render() {
     return (
       <Router>
         <div className="app-header">
-          <Link to="/"><h1>Main</h1></Link>
-          <Link to="/book-one"><h1>Book One</h1></Link>
+          <Link to="/" onClick={this.changeStyle}><h1>Main</h1></Link>
+          <Link to="/book-one" onClick={this.changeStyle}><h1>Book One</h1></Link>
         </div>
 
         <Draggable axis="x">
