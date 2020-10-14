@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Draggable from 'react-draggable';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css"
+
+import BookOne from "./components/BookOne.component";
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="app-header">
+          <Link to="/"><h1>Main</h1></Link>
+          <Link to="/book-one"><h1>Book One</h1></Link>
+        </div>
+
+        <Draggable axis="x">
+          <div className="side-page noselect">
+            <Route exact path="/book-one" component={BookOne} />
+          </div>
+        </Draggable>
+      </Router>
+    );
+  }
 }
 
 export default App;
